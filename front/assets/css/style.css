@@ -1,0 +1,80 @@
+ 
+ body {
+    margin: 10;
+    min-height: 50vh;
+    font-family: "Poppins", sans-serif;
+    background-color:#f5f5f5;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    overflow: hidden;
+  }
+
+#lista {
+    overflow-y: scroll;
+    height: 24rem;
+}
+
+#txtArea{
+   
+    width: 24rem;
+    height: 10rem;
+    min-width: 24rem;
+    min-height: 10rem;
+    max-width: 24rem;
+    max-height: 10rem;
+    margin: 0px;
+}
+
+
+/* PARTE DO CADASTRO */
+.cadastroComentario{
+    justify-content: center;
+    align-items: center;
+    display: grid;
+}
+
+.divComentario{
+    border-right: 2px solid black;
+}
+
+
+.cadastroComentario button{
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24.5rem;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
+    cursor: pointer;  
+}
+
+/* PARTE DOS COMENTARIOS */
+.listaComentarios{
+    margin-left: 10rem;
+}
+
+.listaComentarios h2{
+    margin-bottom: 3rem;
+}
+
+.listaComentariosdivh2  {
+    /* margin: 30px; */
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    
+}
+
+.listaComentarios button{
+    margin-top: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    height: 2rem;
+    width: 5rem;
+    min-width: 5rem;
+    min-height: 2rem;
+    margin-left: 3rem;
+}
+
