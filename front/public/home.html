@@ -14,7 +14,7 @@
     <div class="cadastroComentario">
         <h2>Comentário</h2>
         <textarea id="txtArea" type="text"></textarea>
-        <button id="btnSubmit">Cadastrar</button>
+        <button id="btnSubmit" onClick="setTimeout(() => window.location.reload(), 210);">Cadastrar</button>
     </div>    
 </div>
 
@@ -27,6 +27,7 @@
 
     <script src="../assets/js/script.js" type="text/javascript"></script>
     <script type="text/javascript">
+
         function playAudio(idComentario){
             const audio = document.getElementById(idComentario + "audio");
             audio.play();

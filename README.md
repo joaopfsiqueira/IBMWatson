@@ -4,26 +4,22 @@ Para que o programa funcione serão necessarias as seguintes ferramentas:
 ## Iniciando o projeto
 ```bash
 # Clone este repositório
-$ git clone https://github.com/joaopfsiqueira/ibmWatson/
+$ git clone https://github.com/joaopfsiqueira/IBMWatson/
 
 # Acesse a pasta do projeto no terminal/cmd
-$ cd ibmWatson
 
 # Após estar na pasta instale todas as dependências 
 $ npm install
 
-# Cria todas as tabelas do banco de dados
-$ npx typeorm migration:run
+# É NECESSÁRIO TER O MYSQL INSTALADO NA MÁQUINA!
+# Dentro de ./BACK/SERVER/DB.JS tem um código logo no inicio para criar o banco de dados e as tabelas ao executar o código abaixo.
 
 # Inicie o server no backend
 $ npm run server
 
 # Abra o html "Home" dentro da pasta index
 
+#Divirta-se!
+
 ```
 
-
-##  Tecnologias
-
-
-- [Typeorm](https://www.npmjs.com/package/typeorm)
