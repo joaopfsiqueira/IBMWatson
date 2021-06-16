@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,26 +10,27 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <title>IBM Watson.</title>
 </head>
+
 <body>
     <div class="divComentario">
-    <div class="cadastroComentario">
-        <h2>Comentário</h2>
-        <textarea id="txtArea" type="text"></textarea>
-        <button id="btnSubmit" onClick="setTimeout(() => window.location.reload(), 210);">Cadastrar</button>
-    </div>    
-</div>
+        <div class="cadastroComentario">
+            <h2>Comentário</h2>
+            <textarea id="txtArea" type="text"></textarea>
+            <button id="btnSubmit" onClick="setTimeout(() => window.location.reload(), 210);">Cadastrar</button>
+        </div>
+    </div>
 
-    
-    <div class="listaComentarios">    
+
+    <div class="listaComentarios">
         <h2>Comentários</h2>
-        <div id="lista" ></div>
+        <div id="lista"></div>
     </div>
 
 
     <script src="../assets/js/script.js" type="text/javascript"></script>
     <script type="text/javascript">
 
-        function playAudio(idComentario){
+        function playAudio(idComentario) {
             const audio = document.getElementById(idComentario + "audio");
             audio.play();
         }
@@ -36,4 +38,5 @@
 
 
 </body>
+
 </html>
