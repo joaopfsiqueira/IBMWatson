@@ -1,5 +1,6 @@
 Para que o programa funcione serão necessarias as seguintes ferramentas:
-[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/), [MySql2](https://github.com/sidorares/node-mysql2),[IBMWATSON](https://github.com/watson-developer-cloud/node-sdk), [VSCode](https://code.visualstudio.com/) .
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/), [MySql2](https://github.com/sidorares/node-mysql2),[IBMWATSON](https://github.com/watson-developer-cloud/node-sdk), [VSCode](https://code.visualstudio.com/),
+[DOTENV](https://github.com/motdotla/dotenv),[SEQUELIZE](https://github.com/sequelize/sequelize/) .
 
 ## Iniciando o projeto
 ```bash
@@ -12,22 +13,19 @@ $ git clone https://github.com/joaopfsiqueira/IBMWatson/
 $ npm install
 
 Falando sobre as Credenciais da IBM (URL e KEY)
-#existe um arquivo .env na pasta inicial, onde existem duas variáveis. Bastando alterar pelas ->>
-#credenciais de quem for usar que já irá substituir no código todo.
+#existe um arquivo .env na pasta inicial, onde se encontra as variáveis da IBM e do BD, basta substituir com os seus dados! E todas essas informações vão para /back/src/database/config.js->>
 
 Falando sobre o MYSQL e suas configurações:
-# É NECESSÁRIO TER O MYSQL INSTALADO NA MÁQUINA, qualquer configuração e senha! Necessário alterar no config.json.
-#Dentro de config.json, é onde fica o json dos dados do banco de dados! Para não ter que criar um especifico 
-# O banco e as tabelas são criadas sozinhas pelo db.js! Logo na primeira função initialize();
-# Dentro de ./BACK/SERVER/DB.JS tem um código logo no inicio para criar o banco de dados e as tabelas ao executar o código abaixo.
-# No entanto, caso queiram criar o bd manualmente, segue os scripts.
+# É NECESSÁRIO TER O MYSQL INSTALADO NA MÁQUINA, qualquer configuração e senha!
 
-CREATE SCHEMA `wtsdb` ;
-CREATE TABLE `wtsdb`.`tblcomentarios` (
-  `idComentario` INT NOT NULL AUTO_INCREMENT,
-  `Comentario` TEXT NOT NULL,
-  PRIMARY KEY (`idComentario`));
+Passo a Passo para o MYsql:
+# 1 - Instalar o Mysql server.
+# 2 - pegar as credências como: username, host, port, e password.
+# 3 - Alterar dentro de .env
+# 4 - Abrir new terminal no vscocde e executar "npm run migrations" (VAI FAZER O CREATE DO DATABASE E DAS TABLES AUTOMATICAMENTE.)
+$npm run migrations
 
+# e pronto! Configurado :D
 
 # Inicie o server no backend
 $ npm run server
@@ -36,7 +34,10 @@ $ npm run server
 
 #Divirta-se!
 
- npm run migrations
+Algumas observações:
+#O createDB.js dentro de /back/src/database/createDB.js contem o script que está no package.json (createDataBase).
+#Agradeço à segunda chance! 
+
 
 ```
 
