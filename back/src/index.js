@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const port = 3000 | process.env.PORT;
-const db = require('./database/db');
+// const db = require('./database/db');
 const bodyParser = require('body-parser');
 const cors = require('cors')
 // const controller = require('../controllers/commentary')

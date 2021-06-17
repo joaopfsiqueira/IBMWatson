@@ -1,21 +1,18 @@
 const Sequelize = require('sequelize');
-const db = require('../database/db.js');
+const { Comentario } = require('../models');
 
 exports.getComments = async (req,res) => {
-    const Comentarios = await db.selectComments();
-    return res.status(200).send(Comentarios);
+    const selectComments= await Comentario.findAll();
+    return res.status(200).send(selectComments);
 }
 
 exports.postComments = async (req,res) => {
   try {
-    const comment = req.body.Comentario
-    await db.insertComment({Comentario: comment});
-    const rowComentario = await db.lastComment();
-    const {Comentario: texto, idComentario} = rowComentario;
+    await Comentario.create(req.body);
     
 
     const synthesizeParams = {
-        text: texto,
+        text: req.body.Comentario,
         accept: 'audio/mpeg',
         voice: 'pt-BR_IsabelaVoice',
     };
@@ -25,7 +22,7 @@ exports.postComments = async (req,res) => {
     const audioResponse = (await textToSpeech.synthesize(synthesizeParams)).result;
     audioResponse.pipe(fs.createWriteStream(`back/audios/${audiosNovos}`))
     
-    const Comentarios = await db.selectComments();
+    const Comentarios = await Comentario.findAll();
     return res.status(201).send(Comentarios);
 } catch (err) {
     return res.status(400).send({error: err.message})
