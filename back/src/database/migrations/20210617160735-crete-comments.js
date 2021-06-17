@@ -3,7 +3,7 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     return queryInterface.createTable('tblcomentarios', {
-      idComentarios: {
+      idComentario: {
           type: Sequelize.INTEGER,
           autoIncrement: true,
           allowNull: false,

@@ -1,5 +1,7 @@
 const Sequelize = require('sequelize');
 const { Comentario } = require('../models');
+const fs = require('fs');
+const textToSpeech = require('../../watson/watson');
 
 exports.getComments = async (req,res) => {
     const selectComments= await Comentario.findAll();
@@ -8,8 +10,9 @@ exports.getComments = async (req,res) => {
 
 exports.postComments = async (req,res) => {
   try {
-    await Comentario.create(req.body);
+    const newComment = await Comentario.create(req.body);
     
+    console.log(newComment)
 
     const synthesizeParams = {
         text: req.body.Comentario,
@@ -17,7 +20,7 @@ exports.postComments = async (req,res) => {
         voice: 'pt-BR_IsabelaVoice',
     };
 
-    const audiosNovos = `${idComentario}audio.mp3`
+    const audiosNovos = `${newComment.idComentario}audio.mp3`
 
     const audioResponse = (await textToSpeech.synthesize(synthesizeParams)).result;
     audioResponse.pipe(fs.createWriteStream(`back/audios/${audiosNovos}`))

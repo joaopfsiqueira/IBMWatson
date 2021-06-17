@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
 const Comentario = sequelize.define('Comentario', {
-    idComentarios: {
+    idComentario: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         allowNull: false,
