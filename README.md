@@ -36,5 +36,7 @@ $ npm run server
 
 #Divirta-se!
 
+ npm run migrations
+
 ```
 

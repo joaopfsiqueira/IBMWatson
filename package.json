@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "nodemon back/server"
+    "server": "nodemon back/src",
+    "migrations": "start npm run createDataBase && start npm run createTable",
+    "createDataBase": "node back/src/database/createDB.js",
+    "createTable": "npx sequelize db:migrate"
   },
   "keywords": [],
   "author": "",
@@ -16,9 +19,11 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "ibm-watson": "^6.0.4",
-    "mysql2": "^2.2.5"
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.6.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "sequelize-cli": "^6.2.0"
   }
 }
