@@ -24,9 +24,9 @@ module.exports = {
             audioResponse.pipe(fs.createWriteStream(`back/audios/${audiosNovos}`))
             
             const Comentarios = await db.selectComments();
-            return response.send(Comentarios);
+            return response.status(201).send(Comentarios);
         } catch (err) {
-            return response.send({error: err.message})
+            return response.status(400).send({error: err.message})
         }
     },
 }

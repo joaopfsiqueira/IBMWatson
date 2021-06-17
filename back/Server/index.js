@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/', async (request, response) => {
   const Comentarios = await db.selectComments();
-  return response.send(Comentarios);
+  return response.status(200).send(Comentarios);
 });
 
 app.post('/', controller.create);
