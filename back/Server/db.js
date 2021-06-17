@@ -1,16 +1,14 @@
 const config = require('./config.js');
 const mysql = require('mysql2/promise');
 require('dotenv/config');
-
-
 initialize();
 // FUNCAO PARA CRIAR BANCO DE DADOS CASO NÃO TENHA.
 async function initialize() {
     // create db if it doesn't already exist
-    const {host, port, user, pass, db} = config.database
-    const connection = await mysql.createConnection({host, port, user, pass});
-    await connection.query(`CREATE DATABASE IF NOT EXISTS \`${db}\`;`);
-    var tableDef = 'use'+ db;
+    const {host, port, user, password, database} = config.database
+    const connection = await mysql.createConnection({host, port, user, password});
+    await connection.query(`CREATE DATABASE IF NOT EXISTS \`${database}\`;`);
+    var tableDef = 'use '+ database;
     await connection.query(tableDef);
     var createTable = `create table if not exists tblcomentarios(idComentario int primary key not null auto_increment, Comentario TEXT not null)`;
     await connection.query(createTable);
@@ -22,7 +20,7 @@ async function connect() {
     if (global.connection && global.connection.state !== 'disconnected')
         return global.connection;
     const mysql = require("mysql2/promise");
-    const connection = await mysql.createConnection("mysql://"+{user} + ":" + {pass} + "@" + {host} + ":" + {port}+"/"+{db}) //conexão com o bd
+    const connection = await mysql.createConnection("mysql://"+{user} + ":" + {pass} + "@" + {host} + ":" + {port}+"/"+{database}) //conexão com o bd
     global.connection = connection;
     return connection;
 }
